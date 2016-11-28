@@ -5,7 +5,7 @@ using System.Windows;
 namespace IcyWind.AddInViews
 {
     [AddInBase]
-    public interface IMain
+    public interface IMainView
     {
         FrameworkElement Run(params object[] args);
     }

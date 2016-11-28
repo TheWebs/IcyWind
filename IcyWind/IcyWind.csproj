@@ -114,6 +114,12 @@
     <Folder Include="Core\Update\IcyWind\" />
     <Folder Include="Core\Update\Riot\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IcyWind.HostViews\IcyWind.HostViews.csproj">
+      <Project>{24C1CB65-8A15-4297-A7DE-177D3F8AE00D}</Project>
+      <Name>IcyWind.HostViews</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

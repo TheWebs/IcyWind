@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\IcyWind\bin\Debug\core\AddInSideAdapters\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -54,10 +54,12 @@
     <ProjectReference Include="..\IcyWind.AddInViews\IcyWind.AddInViews.csproj">
       <Project>{8dd48c3b-9358-4221-9f1a-1b95652d0682}</Project>
       <Name>IcyWind.AddInViews</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\IcyWind.Contract\IcyWind.Contract.csproj">
       <Project>{53dddebd-c384-4951-8bcc-63825b7f2dd3}</Project>
       <Name>IcyWind.Contract</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

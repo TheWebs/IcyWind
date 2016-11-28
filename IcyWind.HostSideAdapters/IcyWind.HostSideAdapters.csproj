@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{53DDDEBD-C384-4951-8BCC-63825B7F2DD3}</ProjectGuid>
+    <ProjectGuid>{D85DAC19-DBB7-43B2-8693-ECAC6FBCB5D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IcyWind.Contract</RootNamespace>
-    <AssemblyName>IcyWind.Contract</AssemblyName>
+    <RootNamespace>IcyWind.HostSideAdapters</RootNamespace>
+    <AssemblyName>IcyWind.HostSideAdapters</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\IcyWind\bin\Debug\core\Contracts\</OutputPath>
+    <OutputPath>..\IcyWind\bin\Debug\core\HostSideAdapters\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,20 +30,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.AddIn" />
     <Reference Include="System.AddIn.Contract" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMainContract.cs" />
+    <Compile Include="MainContractToViewHostSideAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IcyWind.Contract\IcyWind.Contract.csproj">
+      <Project>{53dddebd-c384-4951-8bcc-63825b7f2dd3}</Project>
+      <Name>IcyWind.Contract</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\IcyWind.HostViews\IcyWind.HostViews.csproj">
+      <Project>{24c1cb65-8a15-4297-a7de-177d3f8ae00d}</Project>
+      <Name>IcyWind.HostViews</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

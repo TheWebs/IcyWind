@@ -10,7 +10,8 @@ namespace IcyWind.Core
     {
         public FrameworkElement Run(params object[] data)
         {
-            UserInterfaceCore.MainView = new MainControl {Content = new LoginControl()};
+            UserInterfaceCore.MainView = new MainControl();
+            UserInterfaceCore.ChangeView(typeof(LoginControl));
             return UserInterfaceCore.MainView;
         }
     }

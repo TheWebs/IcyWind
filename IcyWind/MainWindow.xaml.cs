@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using log4net;
 
 namespace IcyWind
 {
@@ -23,6 +24,8 @@ namespace IcyWind
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(MainWindow));
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +43,7 @@ namespace IcyWind
             {
                 var msg = warnings.Aggregate("Could not rebuild pipeline:", 
                     (current, warning) => current + ("\n" + warning));
+                log.Error(msg);
                 MessageBox.Show(msg);
                 return;
             }
@@ -51,7 +55,19 @@ namespace IcyWind
                     "IcyWind.Core.IcyWind");
             if (addInTokens.Count > 1)
             {
-                MessageBox.Show("Extreme Danger, more than one core detected. Please reinstall IcyWind");
+                MessageBox.Show("Danger, more than one core detected. Please reinstall IcyWind. IcyWind will not run");
+                log.Fatal("More than one IcyWind Core installed.");
+                Environment.Exit(1);
+            }
+            else
+            {
+                var dirs = System.IO.Directory.GetFiles(System.IO.Path.Combine(appPath, "AddIns"));
+                if (dirs.Length > 1)
+                {
+                    MessageBox.Show("Warning, some plugins are not installed in the correct location. IcyWind wil not run");
+                    log.Warn("Plugin installed in wrong location.");
+                    Environment.Exit(1);
+                }
             }
             var wpfAddInToken = addInTokens.First();
             var hostview = wpfAddInToken.Activate<IMainHostView>(AddInSecurityLevel.FullTrust);

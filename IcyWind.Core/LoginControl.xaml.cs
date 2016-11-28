@@ -25,7 +25,7 @@ namespace IcyWind.Core
         }
         void TestButton(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("WE DID IT!");
+            MessageBox.Show("Test message sent. MAF success");
         }
     }
 }

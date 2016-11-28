@@ -32,21 +32,28 @@ namespace IcyWind
         public void Load()
         {
             // Get add-in pipeline folder (the folder in which this application was launched from)
-            string appPath = System.IO.Path.Combine(Environment.CurrentDirectory, "core");
+            var appPath = System.IO.Path.Combine(Environment.CurrentDirectory, "core");
 
             // Rebuild visual add-in pipeline
-            string[] warnings = AddInStore.Rebuild(appPath);
+            var warnings = AddInStore.Rebuild(appPath);
             if (warnings.Length > 0)
             {
-                string msg = "Could not rebuild pipeline:";
-                foreach (string warning in warnings) msg += "\n" + warning;
+                var msg = warnings.Aggregate("Could not rebuild pipeline:", 
+                    (current, warning) => current + ("\n" + warning));
                 MessageBox.Show(msg);
                 return;
             }
 
             // Activate add-in with Internet zone security isolation
-            Collection<AddInToken> addInTokens = AddInStore.FindAddIns(typeof(IMainHostView), appPath);
-            AddInToken wpfAddInToken = addInTokens[0];
+            var addInTokens = 
+                AddInStore.FindAddIn(typeof(IMainHostView), appPath,
+                    System.IO.Path.Combine(appPath, "AddIns", "IcyWind.Core", "IcyWind.Core.dll"), 
+                    "IcyWind.Core.IcyWind");
+            if (addInTokens.Count > 1)
+            {
+                MessageBox.Show("Extreme Danger, more than one core detected. Please reinstall IcyWind");
+            }
+            var wpfAddInToken = addInTokens.First();
             var hostview = wpfAddInToken.Activate<IMainHostView>(AddInSecurityLevel.FullTrust);
 
             // Get and display add-in UI

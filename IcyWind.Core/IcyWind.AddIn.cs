@@ -1,6 +1,7 @@
 ﻿using System.AddIn;
 using System.Windows;
 using IcyWind.AddInViews;
+using IcyWind.Core.Logic;
 
 namespace IcyWind.Core
 {
@@ -9,7 +10,8 @@ namespace IcyWind.Core
     {
         public FrameworkElement Run(params object[] data)
         {
-            return new LoginControl();
+            UserInterfaceCore.MainView = new MainControl {Content = new LoginControl()};
+            return UserInterfaceCore.MainView;
         }
     }
 }

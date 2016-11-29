@@ -1,20 +1,9 @@
 ﻿using IcyWind.HostViews;
 using System;
 using System.AddIn.Hosting;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using IcyWind.Core;
 using log4net;
 
 namespace IcyWind
@@ -29,6 +18,7 @@ namespace IcyWind
         public MainWindow()
         {
             InitializeComponent();
+            LanguageHelper.SetResource("English");
             Load();
         }
 
@@ -41,7 +31,7 @@ namespace IcyWind
             var warnings = AddInStore.Rebuild(appPath);
             if (warnings.Length > 0)
             {
-                var msg = warnings.Aggregate("Could not rebuild pipeline:", 
+                var msg = warnings.Aggregate(LanguageHelper.ShortNameToString("PipelineRebuildFail"), 
                     (current, warning) => current + ("\n" + warning));
                 log.Error(msg);
                 MessageBox.Show(msg);
@@ -55,7 +45,8 @@ namespace IcyWind
                     "IcyWind.Core.IcyWind");
             if (addInTokens.Count > 1)
             {
-                MessageBox.Show("Danger, more than one core detected. Please reinstall IcyWind. IcyWind will not run");
+                MessageBox.Show(LanguageHelper.ShortNameToString("MoreOneCore"), 
+                    "IcyWind Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 log.Fatal("More than one IcyWind Core installed.");
                 Environment.Exit(1);
             }

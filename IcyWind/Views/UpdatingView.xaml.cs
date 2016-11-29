@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,26 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace IcyWind.Core
+namespace IcyWind.Views
 {
     /// <summary>
-    /// Interaction logic for LoginControl.xaml
+    /// Interaction logic for UpdatingView.xaml
     /// </summary>
-    public partial class LoginControl
+    public partial class UpdatingView : UserControl
     {
-        public LoginControl()
+        public UpdatingView()
         {
             InitializeComponent();
-        }
-
-        public LoginControl(params object[] data)
-        {
-            
-        }
-
-        void TestButton(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Test message sent. MAF success");
         }
     }
 }

@@ -7,6 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="681" d:DesignWidth="1264" Height="681" Width="1264">
     <Grid>
-        <Button Click="TestButton" Content="Click Me!" />
+        <Grid Height="50" Width="1264" VerticalAlignment="Bottom">
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="144,10,0,0"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="10,10,0,0" Height="30" Width="108"/>
+        </Grid>
     </Grid>
 </UserControl>

@@ -17,7 +17,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcyWind.HostViews", "IcyWin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcyWind.HostSideAdapters", "IcyWind.HostSideAdapters\IcyWind.HostSideAdapters.csproj", "{D85DAC19-DBB7-43B2-8693-ECAC6FBCB5D4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddIn", "AddIn", "{7F27B863-7DE5-49AC-A621-1843DDE19791}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WindowLoader", "WindowLoader", "{7F27B863-7DE5-49AC-A621-1843DDE19791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcyWind.Languages", "IcyWind.Languages\IcyWind.Languages.csproj", "{CE9E9D27-DF57-4505-837D-7F375BC89CB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginLoader", "PluginLoader", "{9124D7F4-B787-4D37-A4D4-9C171F401700}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcyWind.Plugin.AddInSideAdapter", "IcyWind.Plugin.AddInSideAdapter\IcyWind.Plugin.AddInSideAdapter.csproj", "{E722B035-DB87-4C0D-9B27-4B3C2E0B3213}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{00636C80-A9F1-48F6-8307-64864DA050EB}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +64,14 @@ Global
 		{D85DAC19-DBB7-43B2-8693-ECAC6FBCB5D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D85DAC19-DBB7-43B2-8693-ECAC6FBCB5D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D85DAC19-DBB7-43B2-8693-ECAC6FBCB5D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE9E9D27-DF57-4505-837D-7F375BC89CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9E9D27-DF57-4505-837D-7F375BC89CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9E9D27-DF57-4505-837D-7F375BC89CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9E9D27-DF57-4505-837D-7F375BC89CB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E722B035-DB87-4C0D-9B27-4B3C2E0B3213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E722B035-DB87-4C0D-9B27-4B3C2E0B3213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E722B035-DB87-4C0D-9B27-4B3C2E0B3213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E722B035-DB87-4C0D-9B27-4B3C2E0B3213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +82,6 @@ Global
 		{5E76AF6E-75FB-40F6-B953-08E1BDC0B28C} = {7F27B863-7DE5-49AC-A621-1843DDE19791}
 		{24C1CB65-8A15-4297-A7DE-177D3F8AE00D} = {7F27B863-7DE5-49AC-A621-1843DDE19791}
 		{D85DAC19-DBB7-43B2-8693-ECAC6FBCB5D4} = {7F27B863-7DE5-49AC-A621-1843DDE19791}
+		{E722B035-DB87-4C0D-9B27-4B3C2E0B3213} = {9124D7F4-B787-4D37-A4D4-9C171F401700}
 	EndGlobalSection
 EndGlobal

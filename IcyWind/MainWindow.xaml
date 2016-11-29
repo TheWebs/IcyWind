@@ -4,9 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IcyWind"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="Icy Wind" Height="720" Width="1280" >
+        Title="Icy Wind" Height="720" Width="1280" Icon="IcyWindIcon.ico">
     <Grid x:Name="MainGrid">
+        <tb:TaskbarIcon x:Name="TrayIcon" Visibility="Visible" IconSource="IcyWindIcon.ico" ToolTipText="IcyWind" >
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu Style="{x:Null}">
+                    <MenuItem x:Name="MenuItemLabelHide" Header="Hide" />
+                    <MenuItem Header="Close" />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
         <ContentControl x:Name="MainContent"/>
     </Grid>
 </Window>

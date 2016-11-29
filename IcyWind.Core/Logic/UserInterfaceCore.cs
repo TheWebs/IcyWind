@@ -15,11 +15,11 @@ namespace IcyWind.Core.Logic
 
         private static readonly Dictionary<Type, UserControl> TypeControls = new Dictionary<Type, UserControl>();
 
-        public static void ChangeView(Type control)
+        public static void ChangeView(Type control, params object[] args)
         {
             if (!TypeControls.ContainsKey(control))
             {
-                TypeControls.Add(control, (UserControl)Activator.CreateInstance(control));
+                TypeControls.Add(control, (UserControl)Activator.CreateInstance(control, args));
             }
             MainView.Content = TypeControls[control];
 #if DEBUG

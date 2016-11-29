@@ -11,7 +11,7 @@ namespace IcyWind.Core
         public FrameworkElement Run(params object[] data)
         {
             UserInterfaceCore.MainView = new MainControl();
-            UserInterfaceCore.ChangeView(typeof(LoginControl));
+            UserInterfaceCore.ChangeView(typeof(LoginControl), data);
             return UserInterfaceCore.MainView;
         }
     }

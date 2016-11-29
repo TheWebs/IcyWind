@@ -66,6 +66,10 @@
       <Name>IcyWind.AddInViews</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\IcyWind.Languages\IcyWind.Languages.csproj">
+      <Project>{ce9e9d27-df57-4505-837d-7f375bc89cb0}</Project>
+      <Name>IcyWind.Languages</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IcyWind.AddIn.cs" />

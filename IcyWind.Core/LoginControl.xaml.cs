@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IcyWind.Core.Logic;
 
 namespace IcyWind.Core
 {
@@ -26,12 +27,13 @@ namespace IcyWind.Core
 
         public LoginControl(params object[] data)
         {
-            
-        }
-
-        void TestButton(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Test message sent. MAF success");
+            //Get the language
+            UserInterfaceCore.SetResource(data[0].ToString());
+            //Remove resource dictionaries
+            Resources.Clear();
+            Resources.MergedDictionaries.Clear();
+            //Set the correct resource dictionary
+            Resources.MergedDictionaries.Add(UserInterfaceCore.MainLanguage);
         }
     }
 }

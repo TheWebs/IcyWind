@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:IcyWind"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="Icy Wind" Height="720" Width="1280" Icon="IcyWindIcon.ico">
+        Title="Icy Wind" Height="720" Width="1280" Icon="IcyWindIcon.ico" 
+        ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid x:Name="MainGrid">
         <tb:TaskbarIcon x:Name="TrayIcon" Visibility="Visible" IconSource="IcyWindIcon.ico" ToolTipText="IcyWind" >
             <tb:TaskbarIcon.ContextMenu>

@@ -5,4 +5,7 @@
     <!-- String resource that can be localized -->
     <system:String x:Key="PipelineRebuildFail">Could not rebuild pipeline:</system:String>
     <system:String x:Key="MoreOneCore">More than one core detected. Please reinstall IcyWind. IcyWind will not run</system:String>
+    <system:String x:Key="PluginWrongLocation">Warning, some plugins are not installed in the correct location. IcyWind wil not run</system:String>
+    <system:String x:Key="Username">Username</system:String>
+    <system:String x:Key="Password">Password</system:String>
 </ResourceDictionary>

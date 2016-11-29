@@ -38,11 +38,12 @@ namespace IcyWind
                 return;
             }
 
-            // Activate add-in with Internet zone security isolation
+            //Load the IcyWind.Core add-in
             var addInTokens = 
                 AddInStore.FindAddIn(typeof(IMainHostView), appPath,
                     System.IO.Path.Combine(appPath, "AddIns", "IcyWind.Core", "IcyWind.Core.dll"), 
                     "IcyWind.Core.IcyWind");
+            //Prevent other add-ins from being loaded and block start if add-ins are in wrong place
             if (addInTokens.Count > 1)
             {
                 MessageBox.Show(LanguageHelper.ShortNameToString("MoreOneCore"), 
@@ -55,16 +56,19 @@ namespace IcyWind
                 var dirs = System.IO.Directory.GetFiles(System.IO.Path.Combine(appPath, "AddIns"));
                 if (dirs.Length > 1)
                 {
-                    MessageBox.Show("Warning, some plugins are not installed in the correct location. IcyWind wil not run");
+                    MessageBox.Show(LanguageHelper.ShortNameToString("PluginWrongLocation"));
                     log.Warn("Plugin installed in wrong location.");
                     Environment.Exit(1);
                 }
             }
-            var wpfAddInToken = addInTokens.First();
-            var hostview = wpfAddInToken.Activate<IMainHostView>(AddInSecurityLevel.FullTrust);
+            //Get the addin
+            var mainpage = addInTokens.First();
+            //Give the add-in full trust to the system
+            var hostview = mainpage.Activate<IMainHostView>(AddInSecurityLevel.FullTrust);
 
             // Get and display add-in UI
-            FrameworkElement addInUi = hostview.Run();
+            FrameworkElement addInUi = hostview.Run("English");
+            //AddInController controller = AddInController.GetAddInController(addInUi);
             MainContent.Content = addInUi;
         }
     }
